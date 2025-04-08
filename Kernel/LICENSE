@@ -1,0 +1,59 @@
+                       Apache License
+                  Version 2.0, January 2004
+               http://www.apache.org/licenses/
+
+      Copyright 2025 UnixeID
+
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+
+                  Project: Neslet Setup  
+                    Author: UnixeID  
+                      Year: 2025  
+
+      Technical Description & Implementation Overview
+
+      A. System-Level Optimization  
+      Neslet Setup optimizes Android systems (non-root) using native C code.  
+      It performs deep cache cleaning, including `/data/system/dropbox`, 
+      Dalvik cache directories, and temp files. It also terminates unneeded 
+      background processes that consume excessive memory, without affecting core services.
+
+      B. Game-Specific Tuning  
+      The script includes predefined performance profiles for 
+      Mobile Legends, PUBG, and Genshin Impact. These profiles dynamically adjust
+      runtime parameters like memory management, zram swap priority, and CPU affinity     
+       to match each game’s performance demand.
+
+      C. Task Management and Process Scheduling  
+      Processes are re-prioritized using `nice`, `renice`, and `oom_score_adj` 
+      mechanisms. High-priority processes are elevated, while less important    
+      tasks are throttled to free system resources. Schedulers are tweaked using 
+      `sched_setscheduler` for latency reduction during gameplay.
+
+      D. Encrypted Configuration Control  
+      Configuration data is stored with XOR-based obfuscation 
+      to prevent tampering. This mechanism ensures data integrity and reduces
+      the risk of unauthorized edits or accidental damage.
+
+      E. Compatibility Handling  
+     The script detects Android version via `ro.build.version.release` 
+     and adapts behavior accordingly. It supports AOSP, LineageOS, MIUI, and other popular
+     ROMs by checking system properties and applying version-specific tweaks.
+
+      F. Diagnostic Logging (Optional)  
+      Script operations are logged to `logcat` and local 
+      debug buffers for analysis. Logging is disabled by default to avoid I/O  
+      bottlenecks, but can be enabled for troubleshooting or development use.
+
+      For questions, contributions, or issue reporting, please contact:  
+      unixe.id.contact@example.com
